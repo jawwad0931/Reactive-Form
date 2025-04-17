@@ -12,13 +12,14 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzRateModule } from 'ng-zorro-antd/rate';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { BookListComponent } from './book-list/book-list.component';
-
+import { SignUpComponent } from "./sign-up/sign-up.component";
+// jab submit ka button use karte hai toh form submit karega
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -31,7 +32,8 @@ import { BookListComponent } from './book-list/book-list.component';
     NzRateModule,
     FormsModule,
     CommonModule,
-    BookListComponent
+    RouterModule,
+    SignUpComponent,
 ],
   providers: [],
   bootstrap: [AppComponent]

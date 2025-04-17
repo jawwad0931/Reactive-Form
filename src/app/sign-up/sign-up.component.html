@@ -1,0 +1,159 @@
+<nz-row [nzJustify]="'center'" [nzAlign]="'middle'" style="height: 100vh;">
+    <nz-col [nzSpan]="12" [nzSpan]="12" [nzXs]="22" [nzSm]="16" [nzMd]="12" [nzLg]="8">
+        <form [formGroup]="validateForm" nz-form nzLayout="vertical" style="padding: 15px; background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <span><nz-divider nzText="SignUp"  nzOrientation="left" style="font-size: 25px;"></nz-divider></span>
+            
+            <nz-form-item [nzGutter]="8">
+              <nz-form-control [nzSpan]="12" nzHasFeedback>
+                <nz-form-label [nzSpan]="24" nzFor="first_name">First Name</nz-form-label>
+                <div class="relations">
+                  <input nz-input formControlName="first_name" id="first_name" type="text" />
+                  <!-- <nz-icon *ngIf="validateForm.controls['first_name'].valid && validateForm.controls['first_name'].touched" nzType="check-circle" nzTheme="outline" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: green;"></nz-icon> -->
+                  <!-- <nz-icon *ngIf="validateForm.controls['first_name'].invalid && validateForm.controls['first_name'].touched" nzType="close-circle" nzTheme="outline" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: red;"></nz-icon> -->
+                </div>
+              
+                <ng-container *ngIf="validateForm.controls['first_name'].errors && (validateForm.controls['first_name'].dirty || validateForm.controls['first_name'].touched)">
+                  <ng-container *ngIf="validateForm.controls['first_name'].errors['required']">
+                    <div class="ant-form-explain">First name is required!</div>
+                  </ng-container>
+                  <ng-container *ngIf="validateForm.controls['first_name'].errors['minlength']">
+                    <div class="ant-form-explain">First name must be at least 3 characters!</div>
+                  </ng-container>
+                </ng-container>
+              </nz-form-control>
+          
+              <nz-form-control [nzSpan]="12" nzHasFeedback>
+                <nz-form-label [nzSpan]="24" nzFor="last_name">Last Name</nz-form-label>
+                <div class="relations">
+                  <input nz-input formControlName="last_name" id="last_name" type="text" />
+                </div>
+                <ng-container *ngIf="validateForm.controls['last_name'].errors && (validateForm.controls['last_name'].dirty || validateForm.controls['last_name'].touched)">
+                  <ng-container *ngIf="validateForm.controls['last_name'].errors['required']">
+                    <div class="ant-form-explain">Last name is required!</div>
+                  </ng-container>
+                  <ng-container *ngIf="validateForm.controls['last_name'].errors['minlength']">
+                    <div class="ant-form-explain">Last name must be at least 3 characters!</div>
+                  </ng-container>
+                </ng-container>
+              </nz-form-control>
+            </nz-form-item>
+          
+            <nz-form-item [nzGutter]="8">
+              <nz-form-control [nzSpan]="12" nzHasFeedback>
+                <nz-form-label [nzSpan]="24" nzFor="email">Email</nz-form-label>
+                <div class="relations">
+                  <input nz-input formControlName="email" id="email" type="email" />
+                </div>
+                <ng-container *ngIf="validateForm.controls['email'].errors && (validateForm.controls['email'].dirty || validateForm.controls['email'].touched)">
+                  <div *ngIf="validateForm.controls['email'].errors['required']" class="ant-form-explain">Email is required!</div>
+                  <div *ngIf="validateForm.controls['email'].errors['email']" class="ant-form-explain">Please enter a valid email!</div>
+                </ng-container>
+              </nz-form-control>
+      
+              <nz-form-control [nzSpan]="12" nzHasFeedback>
+                <nz-form-label [nzSpan]="24" nzFor="contact">Contact</nz-form-label>
+                <div class="relations">
+                  <!-- <input nz-input formControlName="contact" id="contact" type="tel" /> -->
+                  <input nz-input formControlName="contact" id="contact"  type="text" maxlength="12"  (keypress)="onlyNumberKey($event)" />
+                </div>
+                <ng-container *ngIf="validateForm.controls['contact'].errors && (validateForm.controls['contact'].dirty || validateForm.controls['contact'].touched)">
+                  <div *ngIf="validateForm.controls['contact'].errors['required']" class="ant-form-explain">Contact is required!</div>
+                  <div *ngIf="validateForm.controls['contact'].errors['pattern']" class="ant-form-explain">Please enter a valid contact number!</div>
+                </ng-container>
+              </nz-form-control>
+            </nz-form-item>
+          
+              <nz-form-item [nzGutter]="8">
+              <!-- country -->
+              <nz-form-control [nzSpan]="12" nzHasFeedback>
+                <nz-form-label [nzSpan]="24" nzFor="country">Country</nz-form-label>
+                <div class="relations">             
+                  <input nz-input formControlName="country" id="country" type="text" />
+                </div>
+                <ng-container *ngIf="validateForm.controls['country'].errors && (validateForm.controls['country'].dirty || validateForm.controls['country'].touched)">
+                  <ng-container *ngIf="validateForm.controls['country'].errors['required']">
+                    <div class="ant-form-explain">country is required!</div>
+                  </ng-container>
+                  <ng-container *ngIf="validateForm.controls['country'].errors['minlength']">
+                    <div class="ant-form-explain">Last name must be at least 3 characters!</div>
+                  </ng-container>
+                </ng-container>
+              </nz-form-control>
+              <nz-form-control [nzSpan]="12" nzHasFeedback>
+                <nz-form-label [nzSpan]="24" nzFor="state">State</nz-form-label>
+                <div class="relations">
+                  <input nz-input formControlName="state" id="state" type="text" />
+                </div>
+                <ng-container *ngIf="validateForm.controls['state'].errors && (validateForm.controls['state'].dirty || validateForm.controls['state'].touched)">
+                  <ng-container *ngIf="validateForm.controls['state'].errors['required']">
+                    <div class="ant-form-explain">state name is required!</div>
+                  </ng-container>
+                  <ng-container *ngIf="validateForm.controls['state'].errors['minlength']">
+                    <div class="ant-form-explain">state name is most important  !</div>
+                  </ng-container>
+                </ng-container>  
+              </nz-form-control>
+
+            </nz-form-item>
+          
+            <nz-form-item [nzGutter]="8">
+              <!-- city -->
+              <nz-form-control [nzSpan]="12" nzHasFeedback>
+                <nz-form-label [nzSpan]="24" nzFor="city">City</nz-form-label>
+                <div class="relations">
+                  <input nz-input formControlName="city" id="city" type="text" />
+                </div>
+                <ng-container *ngIf="validateForm.controls['city'].errors && (validateForm.controls['city'].dirty || validateForm.controls['city'].touched)">
+                  <ng-container *ngIf="validateForm.controls['city'].errors['required']">
+                    <div class="ant-form-explain">City name is required!</div>
+                  </ng-container>
+                  <ng-container *ngIf="validateForm.controls['city'].errors['minlength']">
+                    <div class="ant-form-explain">City name must be Important!</div>
+                  </ng-container>
+                </ng-container>
+              </nz-form-control>
+              
+
+              <nz-form-control [nzSpan]="12" nzHasFeedback>
+                <nz-form-label [nzSpan]="24" nzFor="street">Street Address</nz-form-label>
+                <div class="relations">
+                  <nz-textarea-count [nzMaxCharacterCount]="2000">
+                    <textarea formControlName="street" id="street" nz-input rows="3" placeholder="write any thing"></textarea>
+                  </nz-textarea-count>
+                    <!-- <input nz-input formControlName="street" id="street" type="text" /> -->
+                </div>
+                <ng-container *ngIf="validateForm.controls['street'].errors && (validateForm.controls['street'].dirty || validateForm.controls['street'].touched)">
+                  <ng-container *ngIf="validateForm.controls['street'].errors['required']">
+                    <div class="ant-form-explain">Street is required!</div>
+                  </ng-container>
+                  <ng-container *ngIf="validateForm.controls['street'].errors['minlength']">
+                    <div class="ant-form-explain">Last name must be at least 3 characters!</div>
+                  </ng-container>
+                </ng-container>
+              </nz-form-control>
+            </nz-form-item>
+          
+
+
+
+
+
+
+
+            <nz-form-item [nzGutter]="8">
+              <nz-form-control [nzSpan]="12">
+                <nz-row [nzJustify]="'start'">
+                  <!-- <a class=""  routerLink="/login">Login</a> -->
+                  <a routerLink="/login">Login</a>
+                </nz-row>
+              </nz-form-control>
+            <nz-form-control [nzSpan]="12">
+              <nz-row [nzJustify]="'end'">
+                <button nz-button nzType="primary" [disabled]="!validateForm.valid"  [nzLoading]="isSubmitting" (click)="submitForm()">Submit</button>
+              </nz-row>
+            </nz-form-control>
+          </nz-form-item>
+          </form>
+          
+    </nz-col>
+</nz-row>

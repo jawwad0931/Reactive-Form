@@ -1,0 +1,30 @@
+<nz-row [nzJustify]="'center'" [nzAlign]="'middle'" style="min-height: 100vh; background-color: #f7f7f7;">
+    <nz-col [nzSpan]="24" [nzMd]="12" [nzLg]="8">
+      <nz-card 
+        *ngIf="receivedData" 
+        nzTitle="Submitted Data" 
+        [nzBordered]="true"
+        [nzHoverable]="true"
+        style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"
+      >
+        <div *ngIf="receivedData">
+          <nz-divider></nz-divider>
+          <p><strong>First Name   :  </strong> <nz-typography>{{ receivedData.first_name }}</nz-typography></p>
+          <p><strong>Last Name   :  </strong> <nz-typography>{{ receivedData.last_name }}</nz-typography></p>
+          <p><strong>Email   :  </strong> <nz-typography>{{ receivedData.email }}</nz-typography></p>
+          <p><strong>Contact   :  </strong> <nz-typography>{{ receivedData.contact }}</nz-typography></p>
+          <p><strong>State   :  </strong> <nz-typography>{{ receivedData.state }}</nz-typography></p>
+          <p><strong>City   :  </strong> <nz-typography>{{ receivedData.city }}</nz-typography></p>
+          <p><strong>Country   :  </strong> <nz-typography>{{ receivedData.country }}</nz-typography></p>
+          <p><strong>Street   :  </strong> <nz-typography>{{ receivedData.street }}</nz-typography></p>
+          
+          <nz-divider></nz-divider>
+          <div style="text-align: center;">
+            <!-- <nz-button nzType="primary" nzSize="large" (click)="goBack()">Go Back</nz-button> -->
+            <button nz-button nzType="primary" (click)="goBack()">Go Back</button>
+          </div>
+        </div>
+      </nz-card>
+    </nz-col>
+  </nz-row>
+  

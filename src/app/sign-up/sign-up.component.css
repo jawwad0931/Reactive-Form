@@ -1,0 +1,14 @@
+#first_name {
+    /* position: absolute;
+    right: 10px; top: 50%;
+    transform: translateY(-50%); */
+}
+
+
+.ant-form-explain{
+    color: rgb(255, 88, 88);
+}
+
+.relations{
+    position: relative;
+}

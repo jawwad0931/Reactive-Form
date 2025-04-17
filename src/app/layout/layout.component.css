@@ -1,0 +1,41 @@
+.logo {
+height: 32px;
+margin: 16px;
+background: rgba(255, 255, 255, 0.3);
+}
+
+nz-header {
+background: #fff;
+padding: 0;
+}
+
+nz-content {
+margin: 0 16px;
+}
+
+nz-breadcrumb {
+margin: 16px 0;
+}
+
+.inner-content {
+padding: 24px;
+background: #fff;
+min-height: 360px;
+}
+
+nz-footer {
+text-align: center;
+}
+
+/* for form */
+[nz-form] {
+    max-width: 600px;
+}
+
+.ant-select.ant-select-in-form-item.phone-select {
+width: 80px;
+}
+
+.register-area {
+margin-bottom: 8px;
+}
